@@ -42,7 +42,7 @@ module ArrayArithmetic
 
   #Adds the values of corresponding indices of two arrays
   def add(arr_one, arr_two)
-    raise ArgumentError, 'Argument is not an array' unless arr_one.is_a? Array
+    raise ArgumentError, 'First argument is not an array' unless arr_one.is_a? Array
 
     result = []
 
@@ -68,7 +68,7 @@ module ArrayArithmetic
 
   #Subtracts the values of corresponding indices of two arrays
   def subtract(arr_one, arr_two)
-    raise ArgumentError, 'Argument is not an array' unless arr_one.is_a? Array
+    raise ArgumentError, 'First argument is not an array' unless arr_one.is_a? Array
 
     result = []
 
@@ -94,7 +94,7 @@ module ArrayArithmetic
 
   #Multiplies the values of corresponding indices of two arrays
   def multiply(arr_one, arr_two)
-    raise ArgumentError, 'Argument is not an array' unless arr_one.is_a? Array
+    raise ArgumentError, 'First argument is not an array' unless arr_one.is_a? Array
 
     result = []
 
@@ -121,7 +121,7 @@ module ArrayArithmetic
   #Divides the values of corresponding indices of two arrays
   #Returns values as a float
   def divide(arr_one, arr_two, sig_dig=2)
-    raise ArgumentError, 'Argument is not an array' unless arr_one.is_a? Array
+    raise ArgumentError, 'First argument is not an array' unless arr_one.is_a? Array
 
     result = []
 
@@ -155,7 +155,7 @@ module ArrayArithmetic
 
   #Calculates the remainder of corresponding inidices of two arrays
   def remainder(arr_one, arr_two, sig_dig=2)
-    raise ArgumentError, 'Argument is not an array' unless arr_one.is_a? Array
+    raise ArgumentError, 'First argument is not an array' unless arr_one.is_a? Array
 
     result = []
 
@@ -188,8 +188,8 @@ module ArrayArithmetic
 
 
   #Raises the values of arr_one to the power of the value at corresponding indices in arr_two
-  def exponential(arr_one, arr_two)
-    raise ArgumentError, 'Argument is not an array' unless arr_one.is_a? Array
+  def exponent(arr_one, arr_two)
+    raise ArgumentError, 'First argument is not an array' unless arr_one.is_a? Array
 
     result = []
 
@@ -215,12 +215,12 @@ module ArrayArithmetic
 
   #Squares the values of an array
   def square(array)
-    return exponential(array, 2)
+    return exponent(array, 2)
   end
 
 
   #Returns the square root of each value of an array
   def square_root(array)
-    return exponential(array, 0.5)
+    return exponent(array, 0.5)
   end
 end
