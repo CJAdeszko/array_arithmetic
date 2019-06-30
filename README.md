@@ -1,5 +1,7 @@
 # Array_Arithmetic
 
+https://travis-ci.com/CJAdeszko/array_arithmetic.svg?branch=master
+
 Array_Arithmetic provides users the ability to perform common math functions on entire arrays in Ruby. This gem provides methods for the following math functions:
 
   - Addition
@@ -123,7 +125,7 @@ divide(arr_one, 0.5)
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/CJAdeszko/array_arithmetic. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/CJAdeszko/array_arithmetic.
 
 ## License
 
