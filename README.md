@@ -1,6 +1,6 @@
 # Array_Arithmetic
 
-https://travis-ci.com/CJAdeszko/array_arithmetic.svg?branch=master
+[![Build Status](https://travis-ci.com/CJAdeszko/array_arithmetic.svg?branch=master)](https://travis-ci.com/CJAdeszko/array_arithmetic)
 
 Array_Arithmetic provides users the ability to perform common math functions on entire arrays in Ruby. This gem provides methods for the following math functions:
 
