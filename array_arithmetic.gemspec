@@ -6,7 +6,6 @@ Gem::Specification.new do |spec|
   spec.name          = "array_arithmetic"
   spec.version       = ArrayArithmetic::VERSION
   spec.authors       = ["C.J. Adeszko"]
-  spec.email         = ["cjadeszko@gmail.com"]
 
   spec.summary       = "Provides users with methods for performing common math functions on arrays."
   spec.homepage      = "https://github.com/CJAdeszko/array_arithmetic"
