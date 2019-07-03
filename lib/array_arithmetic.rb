@@ -3,52 +3,13 @@ require "array_arithmetic/version"
 module ArrayArithmetic
   class Error < StandardError; end
 
-  #Return an argument as an array for use with arithmetic methods
-  def make_array(arg)
-    return [arg]
-  end
-
-  #Takes in two arrays of unequal length passed to the arithmetic method
-  #Recycles values from the shorter array
-  #Returns an array containing two arrays of equal length
-  def update_array_length(arr_one, arr_two)
-    if arr_one.length < arr_two.length
-      adjusted_arr_one = []
-      arr_two.each_with_index do |value, index|
-        if arr_one.length == 1
-          adjusted_arr_one << arr_one[0]
-        elsif index >= arr_one.length
-          adjusted_arr_one << arr_one[index - arr_one.length]
-        else
-          adjusted_arr_one << arr_one[index]
-        end
-      end
-      return adjusted_arr_one, arr_two
-    elsif arr_one.length > arr_two.length
-      adjusted_arr_two = []
-      arr_one.each_with_index do |value, index|
-        if arr_two.length == 1
-          adjusted_arr_two << arr_two[0]
-        elsif index >= arr_two.length
-          adjusted_arr_two << arr_two[index - arr_two.length]
-        else
-          adjusted_arr_two << arr_two[index]
-        end
-      end
-      return arr_one, adjusted_arr_two
-    end
-  end
-
-
   #Adds the values of corresponding indices of two arrays
   def add(arr_one, arr_two)
     raise ArgumentError, 'First argument is not an array' unless arr_one.is_a? Array
 
     result = []
 
-    if arr_two.class != Array
-      arr_two = make_array(arr_two)
-    end
+    arr_two = arr_two.class != Array ? make_array(arr_two) : arr_two
 
     if arr_one.length != arr_two.length
       length_matched_arrays = update_array_length(arr_one, arr_two)
@@ -72,9 +33,7 @@ module ArrayArithmetic
 
     result = []
 
-    if arr_two.class != Array
-      arr_two = make_array(arr_two)
-    end
+    arr_two = arr_two.class != Array ? make_array(arr_two) : arr_two
 
     if arr_one.length != arr_two.length
       length_matched_arrays = update_array_length(arr_one, arr_two)
@@ -98,9 +57,7 @@ module ArrayArithmetic
 
     result = []
 
-    if arr_two.class != Array
-      arr_two = make_array(arr_two)
-    end
+    arr_two = arr_two.class != Array ? make_array(arr_two) : arr_two
 
     if arr_one.length != arr_two.length
       length_matched_arrays = update_array_length(arr_one, arr_two)
@@ -125,9 +82,7 @@ module ArrayArithmetic
 
     result = []
 
-    if arr_two.class != Array
-      arr_two = make_array(arr_two)
-    end
+    arr_two = arr_two.class != Array ? make_array(arr_two) : arr_two
 
     if arr_one.length != arr_two.length
       length_matched_arrays = update_array_length(arr_one, arr_two)
@@ -159,9 +114,7 @@ module ArrayArithmetic
 
     result = []
 
-    if arr_two.class != Array
-      arr_two = make_array(arr_two)
-    end
+    arr_two = arr_two.class != Array ? make_array(arr_two) : arr_two
 
     if arr_one.length != arr_two.length
       length_matched_arrays = update_array_length(arr_one, arr_two)
@@ -193,9 +146,7 @@ module ArrayArithmetic
 
     result = []
 
-    if arr_two.class != Array
-      arr_two = make_array(arr_two)
-    end
+    arr_two = arr_two.class != Array ? make_array(arr_two) : arr_two
 
     if arr_one.length != arr_two.length
       length_matched_arrays = update_array_length(arr_one, arr_two)
@@ -222,5 +173,44 @@ module ArrayArithmetic
   #Returns the square root of each value of an array
   def square_root(array)
     return exponent(array, 0.5)
+  end
+end
+
+
+private
+
+#Return an argument as an array for use with arithmetic methods
+def make_array(arg)
+  return [arg]
+end
+
+#Takes in two arrays of unequal length passed to the arithmetic method
+#Recycles values from the shorter array
+#Returns an array containing two arrays of equal length
+def update_array_length(arr_one, arr_two)
+  if arr_one.length < arr_two.length
+    adjusted_arr_one = []
+    arr_two.each_with_index do |value, index|
+      if arr_one.length == 1
+        adjusted_arr_one << arr_one[0]
+      elsif index >= arr_one.length
+        adjusted_arr_one << arr_one[index - arr_one.length]
+      else
+        adjusted_arr_one << arr_one[index]
+      end
+    end
+    return adjusted_arr_one, arr_two
+  elsif arr_one.length > arr_two.length
+    adjusted_arr_two = []
+    arr_one.each_with_index do |value, index|
+      if arr_two.length == 1
+        adjusted_arr_two << arr_two[0]
+      elsif index >= arr_two.length
+        adjusted_arr_two << arr_two[index - arr_two.length]
+      else
+        adjusted_arr_two << arr_two[index]
+      end
+    end
+    return arr_one, adjusted_arr_two
   end
 end
