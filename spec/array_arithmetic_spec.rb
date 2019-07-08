@@ -17,7 +17,22 @@ RSpec.describe ArrayArithmetic do
       arr_two = [9, 8, 7, 6, 5]
       expect{add(5, arr_two)}.to raise_error(ArgumentError, 'First argument is not an array')
     end
+
+    it "recycles items if the first array is shorter" do
+      arr_one = [1,2]
+      arr_two = [1,1,1,1,1,1,1,1,1,1,1]
+      result =  [2,3,2,3,2,3,2,3,2,3,2]
+      expect(add(arr_one, arr_two)).to eq(result)
+    end
+
+    it "recycles items if the second array is shorter" do
+      arr_one = [1,1,1,1,1,1,1,1,1,1,1]
+      arr_two = [1,2]
+      result =  [2,3,2,3,2,3,2,3,2,3,2]
+      expect(add(arr_one, arr_two)).to eq(result)
+    end
   end
+
 
   describe "subtract" do
     it "subtracts the corresponding indices of two arrays" do
@@ -31,7 +46,22 @@ RSpec.describe ArrayArithmetic do
       arr_two = [9, 8, 7, 6, 5]
       expect{subtract(5, arr_two)}.to raise_error(ArgumentError, 'First argument is not an array')
     end
+
+    it "recycles items if the first array is shorter" do
+      arr_one = [1,2]
+      arr_two = [1,1,1,1,1,1,1,1,1,1,1]
+      result =  [0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0]
+      expect(subtract(arr_one, arr_two)).to eq(result)
+    end
+
+    it "recycles items if the second array is shorter" do
+      arr_one = [1,1,1,1,1,1,1,1,1,1,1]
+      arr_two = [1,2]
+      result =  [0, -1, 0, -1, 0 , -1, 0, -1, 0, -1, 0]
+      expect(subtract(arr_one, arr_two)).to eq(result)
+    end
   end
+
 
   describe "multiply" do
     it "multiplies the corresponding indices of two arrays" do
@@ -45,7 +75,22 @@ RSpec.describe ArrayArithmetic do
       arr_two = [9, 8, 7, 6, 5]
       expect{multiply(5, arr_two)}.to raise_error(ArgumentError, 'First argument is not an array')
     end
+
+    it "recycles items if the first array is shorter" do
+      arr_one = [1,2]
+      arr_two = [1,1,1,1,1,1,1,1,1,1,1]
+      result =  [1,2,1,2,1,2,1,2,1,2,1]
+      expect(multiply(arr_one, arr_two)).to eq(result)
+    end
+
+    it "recycles items if the second array is shorter" do
+      arr_one = [1,1,1,1,1,1,1,1,1,1,1]
+      arr_two = [1,2]
+      result =  [1,2,1,2,1,2,1,2,1,2,1]
+      expect(multiply(arr_one, arr_two)).to eq(result)
+    end
   end
+
 
   describe "divide" do
     it "divides the corresponding indices of two arrays and returns values as a float" do
@@ -59,7 +104,22 @@ RSpec.describe ArrayArithmetic do
       arr_two = [9, 8, 7, 6, 5]
       expect{divide(5, arr_two)}.to raise_error(ArgumentError, 'First argument is not an array')
     end
+
+    it "recycles items if the first array is shorter" do
+      arr_one = [1,2]
+      arr_two = [1,1,1,1,1,1,1,1,1,1,1]
+      result =  [1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1]
+      expect(divide(arr_one, arr_two)).to eq(result)
+    end
+
+    it "recycles items if the second array is shorter" do
+      arr_one = [1,1,1,1,1,1,1,1,1,1,1]
+      arr_two = [1,2]
+      result =  [1, 0.5, 1, 0.5, 1, 0.5, 1, 0.5, 1, 0.5, 1]
+      expect(divide(arr_one, arr_two)).to eq(result)
+    end
   end
+
 
   describe "remainder" do
     it "returns the remainder of corresponding indices of two arrays" do
@@ -73,7 +133,22 @@ RSpec.describe ArrayArithmetic do
       arr_two = [9, 8, 7, 6, 5]
       expect{remainder(5, arr_two)}.to raise_error(ArgumentError, 'First argument is not an array')
     end
+
+    it "recycles items if the first array is shorter" do
+      arr_one = [1,2]
+      arr_two = [1,1,1,1,1,1,1,1,1,1,1]
+      result =  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+      expect(remainder(arr_one, arr_two)).to eq(result)
+    end
+
+    it "recycles items if the second array is shorter" do
+      arr_one = [1,1,1,1,1,1,1,1,1,1,1]
+      arr_two = [1,2]
+      result =  [0, 1.0, 0, 1.0, 0, 1.0, 0, 1.0, 0, 1.0, 0]
+      expect(remainder(arr_one, arr_two)).to eq(result)
+    end
   end
+
 
   describe "exponent" do
     it "raises the values of the first array to the power provided" do
@@ -93,7 +168,22 @@ RSpec.describe ArrayArithmetic do
       arr_two = [9, 8, 7, 6, 5]
       expect{exponent(5, arr_two)}.to raise_error(ArgumentError, 'First argument is not an array')
     end
+
+    it "recycles items if the first array is shorter" do
+      arr_one = [1,2]
+      arr_two = [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]
+      result =  [1, 4, 1, 4, 1, 4, 1, 4, 1, 4, 1]
+      expect(exponent(arr_one, arr_two)).to eq(result)
+    end
+
+    it "recycles items if the second array is shorter" do
+      arr_one = [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]
+      arr_two = [1,2]
+      result =  [2, 4, 2, 4, 2, 4, 2, 4, 2, 4, 2]
+      expect(exponent(arr_one, arr_two)).to eq(result)
+    end
   end
+
 
   describe "square" do
     it "returns the values of the array raised to the second power" do
@@ -102,6 +192,7 @@ RSpec.describe ArrayArithmetic do
       expect(square(arr_one)).to eq(result)
     end
   end
+
 
   describe "square_root" do
     it "returns the squareroot of the values of the array" do

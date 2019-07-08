@@ -194,7 +194,11 @@ def update_array_length(arr_one, arr_two)
       if arr_one.length == 1
         adjusted_arr_one << arr_one[0]
       elsif index >= arr_one.length
-        adjusted_arr_one << arr_one[index - arr_one.length]
+        if index >= arr_one.length * 2
+          adjusted_arr_one << arr_one[index % arr_one.length]
+        else
+          adjusted_arr_one << arr_one[index - arr_one.length]
+        end
       else
         adjusted_arr_one << arr_one[index]
       end
@@ -206,7 +210,11 @@ def update_array_length(arr_one, arr_two)
       if arr_two.length == 1
         adjusted_arr_two << arr_two[0]
       elsif index >= arr_two.length
-        adjusted_arr_two << arr_two[index - arr_two.length]
+        if index >= arr_two.length * 2
+          adjusted_arr_two << arr_two[index % arr_two.length]
+        else
+          adjusted_arr_two << arr_two[index - arr_two.length]
+        end
       else
         adjusted_arr_two << arr_two[index]
       end
